@@ -13,8 +13,39 @@
       referrerpolicy="no-referrer"
     />
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
       body {
         background-color: #f4f4f0;
+        font-size: 18px;
+      }
+      main.container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        max-width: 90%;
+      }
+      nav {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+      }
+      nav ul {
+        transform: skewY(-15deg);
+        list-style: none;
+      }
+      section {
+        display: none;
+      }
+      section:target {
+        display: block;
+        background-color: #fefefe;
+        border: 1px solid #333;
+        padding: 1em;
       }
     </style>
   </head>
@@ -33,7 +64,15 @@
       <section id="home">
         <h1>Andrew the Creator</h1>
         <p><em>aka Andrew Steele</em></p>
-        <p>You've met me at a very... peculiar time in my life. My brain has splintered into many, many pieces. I am simultaneously involved in the varied worlds of web software programming, writing, whittling, magic, </p>
+        <p>
+          You've met me at a very... peculiar time in my life. My brain has splintered into many, many pieces. I am
+          simultaneously involved in the varied worlds of web software programming, writing, whittling, magic, game
+          development, acting, mental health, and more.
+        </p>
+        <p>
+          Use the floating box below that reads "menu" to explore the disparate depths of my psyche. I've gone in search
+          of myself. If you find me before I return, keep me here until I get back.
+        </p>
       </section>
       <section id="code"></section>
     </main>
