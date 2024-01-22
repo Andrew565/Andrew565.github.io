@@ -9,9 +9,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css" />
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
       body {
         font-family: "Roboto Slab", serif;
         background-color: #f4f4f0;
+        font-size: 18px;
+      }
+      main.container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        max-width: 90%;
+      }
+      nav {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+      }
+      nav ul {
+        transform: skewY(-15deg);
+        list-style: none;
+      }
+      section {
+        display: none;
+      }
+      section:target {
+        display: block;
+        background-color: #fefefe;
+        border: 1px solid #333;
+        padding: 1em;
       }
     </style>
   </head>
