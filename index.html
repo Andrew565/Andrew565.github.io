@@ -7,13 +7,16 @@
     <title>Andrew the Creator</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+      :root {
+        --black: #333;
+      }
       body {
         background-color: #f4f4f0;
       }
       nav ul li {
         display: inline-block;
         padding-right: 0.25rem;
-        border-right: 1px solid #333;
+        border-right: 1px solid var(--black);
       }
       section {
         display: none;
@@ -21,13 +24,17 @@
       section:target {
         display: block;
         background-color: #fefefe;
-        border: 1px solid #333;
+        border: 1px solid var(--black);
         padding: 1rem;
-        width: 90%;
+      }
+      @media (min-width: 768px) {
+        section:target {
+          width: 75%;
+        }
       }
     </style>
   </head>
-  <body>
+  <body class="font-sans">
     <nav id="mainMenu" class="absolute bottom-3 left-2">
       <ul class="list-none">
         <li><a href="#home">Home</a></li>
@@ -37,38 +44,69 @@
         <li><a href="#writing">Writing</a></li>
         <li class="border-none"><a href="#contact">Contact</a></li>
       </ul>
-      <div id="mainMenuButton">😀</div>
     </nav>
     <main class="flex justify-center items-center h-screen">
       <section id="home">
-        <h1 class="text-xl font-bold">Andrew the Creator</h1>
-        <p>
-          <em
-            >aka Andrew565
-            <br />
-            aka Andrew Steele
-          </em>
-        </p>
-        <p class="mt-6">
-          Hello! I am involved in the varied worlds of web software programming, writing, whittling, wizardry (magic
-          tricks), and whatever strikes my fancy at the moment (I have ADHD).
-        </p>
-        <p class="mt-6">
-          Please select from the menu at the bottom of the page an area of interest of mine that you would like to learn
-          more about!
-        </p>
+        <div>
+          <h1 class="text-xl font-bold">Hi, I’m Andrew</h1>
+          <br />
+          <p class="leading-relaxed">
+            I’m a web developer specializing in front-end engineering. I create visually appealing and user-friendly
+            interfaces that bring ideas to life on the web, with a focus on crafting seamless and intuitive experiences.
+          </p>
+          <br />
+          <p class="leading-relaxed">
+            Beyond coding, I’m a storyteller. I write stories, poems, and plays, and enjoy making games that blend
+            traditional gameplay with modern technology. Whether I’m building a website or crafting a narrative, my goal
+            is to create something meaningful and memorable.
+          </p>
+        </div>
       </section>
       <section id="code">
-        <p>Code samples and such go here.</p>
+        <h1 class="text-center text-xl">Code</h1>
+        <article>
+          <div class="my-2">
+            <a href="https://github.com/Andrew565/hafcaf" class="underline"> Hafcaf - View the source code </a>
+          </div>
+          <div>
+            <p>
+              Hafcaf is an extremely minimal single-page application (SPA) framework, designed for people who want to
+              rapidly create apps without having to learn a whole new way to create apps. If you know HTML, a little
+              CSS, and a very little JavaScript, you can be creating a SPA in less than five minutes.
+            </p>
+            <br />
+            <ul class="list-disc list-inside">
+              <li>No build tools needed - but you can integrate with them if you wish</li>
+              <li>Works as far back as IE 8</li>
+              <li>Designed to require the use of as little JavaScript as possible</li>
+              <li>Will play nice with pretty much all CSS frameworks</li>
+            </ul>
+          </div>
+        </article>
       </section>
       <section id="crafting">
-        <p>Crafting samples and such go here.</p>
+        <p>I like to whittle and do a very small amount of woodworking. I might post some examples here someday.</p>
       </section>
       <section id="games">
-        <p>Gaming samples and such go here.</p>
+        <p>
+          Eventually I will post information here about some of the games I've made, and probably also some of the games
+          I enjoy playing.
+        </p>
+        <br />
+        <p>
+          I'm obsessed with collecting Print and Play games in particular, and solo ones especially. If you know of a
+          good one and/or want a recommendation, let me know!
+        </p>
       </section>
       <section id="writing">
-        <p>Writing samples and such go here.</p>
+        <p>Here's a short poem I wrote while trying to come up with content for this space:</p>
+        <br />
+        <p>Roses are red,</p>
+        <p>Coding is hard,</p>
+        <p>Whatever you do,</p>
+        <p>Don't trust a developer bard.</p>
+        <br />
+        <p>I'll post some more interesting content here at some point in the future. Probably.</p>
       </section>
       <section id="contact">
         <p>Info on how to contact me, should you for some reason desire to do so, will eventually go here.</p>
