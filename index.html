@@ -9,79 +9,234 @@
     <style>
       :root {
         --black: #333;
+        --white: #f4f4f0;
+        --french-gray: #b8b8b8;
+        --sunny-yellow: #ecbf55;
       }
       body {
-        background-color: #f4f4f0;
+        background-color: var(--sunny-yellow);
       }
       nav ul li {
         display: inline-block;
-        padding-right: 0.25rem;
-        border-right: 1px solid var(--black);
+        padding-right: 0.5rem;
       }
       section {
         display: none;
+        background-color: var(--white);
+        border: 1px solid var(--black);
+        padding: 1rem;
+        max-height: 80vh;
+        overflow-y: auto;
       }
       section:target {
         display: block;
-        background-color: #fefefe;
-        border: 1px solid var(--black);
-        padding: 1rem;
       }
       @media (min-width: 768px) {
         section:target {
           width: 75%;
         }
       }
+      h1,
+      h2,
+      h3 {
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      }
     </style>
   </head>
   <body class="font-sans">
-    <nav id="mainMenu" class="absolute bottom-3 left-2">
+    <nav id="mainMenu" class="absolute top-4 left-2">
       <ul class="list-none">
         <li><a href="#home">Home</a></li>
+        <li><a href="#about-me">About Me</a></li>
+        <li><a href="#resume">Resumé</a></li>
         <li><a href="#code">Code</a></li>
-        <li><a href="#crafting">Crafting</a></li>
+        <!-- <li><a href="#crafting">Crafting</a></li> -->
+        <li><a href="#articles">Articles</a></li>
+        <li><a href="#talks">Talks</a></li>
+        <!-- <li><a href="#fiction">Fiction</a></li>
         <li><a href="#games">Games</a></li>
-        <li><a href="#writing">Writing</a></li>
-        <li class="border-none"><a href="#contact">Contact</a></li>
+        <li><a href="#contact">Contact Me</a></li>
+        -->
       </ul>
     </nav>
     <main class="flex justify-center items-center h-screen">
       <section id="home">
-        <div>
-          <h1 class="text-xl font-bold">Hi, I’m Andrew</h1>
-          <br />
+        <h1 class="text-2xl font-bold">
+          Hi, I’m Andrew Steele
+          <img
+            src="/assets/img/andrew-steele.jpg"
+            alt="A picture of Andrew Steele"
+            class="rounded-full w-32 h-32 float-right"
+          />
+        </h1>
+        <p class="leading-relaxed my-4">
+          <a class="underline mr-2" href="https://www.linkedin.com/in/andrew-steele-0509a4169/">LinkedIn</a>
+          <a class="underline mr-2" href="https://github.com/Andrew565">GitHub</a>
+          <a class="underline mr-2" href="https://dev.to/andrew565">Dev.to</a>
+        </p>
+        <p class="leading-relaxed">
+          I am a staff-level, front end software engineer and a storyteller. I write stories, poems, and plays, and
+          enjoy making games that blend traditional gameplay with modern technology. Whether I’m building a website or
+          crafting a narrative, my goal is to create something meaningful and memorable.
+        </p>
+      </section>
+      <section id="about-me">
+        <h1 class="text-2xl font-bold">About Me</h1>
+        <article>
+          <h2 class="text-xl my-2">Who are you?</h2>
           <p class="leading-relaxed">
-            I’m a web developer specializing in front-end engineering. I create visually appealing and user-friendly
-            interfaces that bring ideas to life on the web, with a focus on crafting seamless and intuitive experiences.
+            My name is Andrew, and I am a writer, a coder, a husband, a father, a dreamer, and a creator. I live with my
+            wife and four kids in Chattanooga, TN. I was born in California, and have also lived in Colorado and
+            Georgia.
+          </p>
+
+          <h2 class="text-xl my-2">What do you do?</h2>
+          <p class="leading-relaxed">
+            I am a motivated, personable developer with more than 20 years of experience and a successful history of
+            tackling technology challenges. I am a creative problem-solver that achieves quick results by thinking
+            outside the box and using standards-based code. I can envision user needs inclusively, adapting to multiple
+            comfort levels with technology. I am passionate about assisting users and companies to achieve their goals
+            through innovative solutions.
           </p>
           <br />
           <p class="leading-relaxed">
-            Beyond coding, I’m a storyteller. I write stories, poems, and plays, and enjoy making games that blend
-            traditional gameplay with modern technology. Whether I’m building a website or crafting a narrative, my goal
-            is to create something meaningful and memorable.
+            I am flexible and versatile – able to maintain a sense of humor under pressure. I thrive in collaborative
+            environments and am always receptive to feedback. I look for ways to improve as an individual, and also how
+            to improve the offerings of whatever company I work for. I enjoy mentoring junior developers and encouraging
+            them to reach new levels of their craft (see my
+            <a class="underline" href="#articles">articles</a> and <a class="underline" href="#talks">talks</a> for
+            examples).
           </p>
-        </div>
+
+          <h2 class="text-xl my-2">Why do you do it?</h2>
+          <p class="leading-relaxed">
+            I desire to connect people, companies, and technologies in a synergistic union because I believe
+            applications can be used to aid people's daily lives. Technology and knowledge should be accessible to all
+            people and available in a way that is simple and easy to use. I believe that I should make things easy for
+            the user and difficult for myself. No shortcuts and no quick-fixes. Things should be done right the first
+            time.
+          </p>
+
+          <h2 class="text-xl my-2">How was this site made?</h2>
+          <p class="leading-relaxed">
+            This site was made using the Tailwind CSS framework and plain HTML and JavaScript.
+          </p>
+        </article>
+      </section>
+      <section id="resume" class="h-full">
+        <h1 class="text-2xl font-bold">Resumé</h1>
+        <article>
+          <p class="my-2"><a href="assets/andrew-steele-resume.pdf" class="underline">Download my resumé</a></p>
+          <embed src="assets/andrew-steele-resume.pdf" width="100%" type="application/pdf" style="height: 80vh" />
+        </article>
       </section>
       <section id="code">
-        <h1 class="text-center text-xl">Code</h1>
+        <h1 class="text-2xl">Code</h1>
+        <article class="mb-4">
+          <h2 class="my-4 text-xl">
+            <a class="underline" href="https://github.com/Andrew565/hafcaf" class="underline">Hafcaf</a>
+          </h2>
+          <p>
+            Hafcaf is an extremely minimal (1kb) single-page application (SPA) framework, designed for people who want
+            to rapidly create apps without having to learn a whole new way to create apps. If you know HTML, a little
+            CSS, and a very little JavaScript, you can be creating a SPA in less than five minutes.
+          </p>
+          <ul class="mt-2 list-disc list-inside">
+            <li>No build tools needed - but you can integrate with them if you wish</li>
+            <li>Works as far back as IE 8</li>
+            <li>Designed to require the use of as little JavaScript as possible</li>
+            <li>Will play nice with pretty much all CSS frameworks</li>
+          </ul>
+        </article>
         <article>
-          <div class="my-2">
-            <a href="https://github.com/Andrew565/hafcaf" class="underline"> Hafcaf - View the source code </a>
+          <h2 class="my-4 text-xl">
+            <a class="my-2 underline" href="https://github.com/Andrew565/ProjectMO">MATR1X 0VERL0AD</a>
+          </h2>
+          <p>
+            MATR1X 0VERL0AD is my digital recreation of a cyberpunk physical card game by
+            <a class="underline" href="https://notwriting.itch.io/matrix-overload">Michael Elliot</a>. I used my
+            <a class="underline" href="https://github.com/Andrew565/DeckOfCards.js">DeckOfCards.js</a> library, and
+            hand-coded the mechanics using plain JavaScript. You can
+            <a class="underline" href="https://andrew565.github.io/ProjectMO/">play the game online</a>.
+          </p>
+        </article>
+        <article>
+          <h2 class="my-4 text-xl">
+            <a class="my-2 underline" href="https://github.com/Andrew565/DeckOfCards.js">DeckOfCards.js</a>
+          </h2>
+          <p>
+            DeckOfCards.js is a JavaScript library for creating and manipulating decks of cards. It is designed to be
+            easy to use and flexible, allowing you to create decks of any size and type, and to perform a wide range of
+            operations on them. It was built using TypeScript.
+          </p>
+        </article>
+      </section>
+      <section id="articles">
+        <h1 class="text-2xl font-bold">Articles</h1>
+        <article>
+          <h2 class="my-4 text-xl">
+            <a class="underline" href="https://dev.to/andrew565/hafcaf-the-no-framework-spa-solution-for-everyone-ckj"
+              >hafcaf - The No-Framework SPA Solution for Everyone</a
+            >
+          </h2>
+          <p>
+            The article I wrote to introduce hafcaf to the world. See the
+            <a class="underline" href="https://github.com/Andrew565/hafcaf">GitHub repo</a> for the source code and
+            docs.
+          </p>
+        </article>
+        <article>
+          <h2 class="my-4 text-xl">
+            <a class="underline" href="https://dev.to/andrew565/which-array-function-when"
+              >Which Arrray Function When?</a
+            >
+          </h2>
+          <p>A discussion of the most popular array functions for iterating over a collection of values.</p>
+        </article>
+        <article class="mt-4">
+          <p>More coming soon!</p>
+        </article>
+        <!-- <article>
+          <h2 class="my-4 text-xl">
+            <a class="underline" href="">Another Article</a>
+          </h2>
+          <p>Details here</p>
+        </article>
+        <article>
+          <h2 class="my-4 text-xl">
+            <a class="underline" href="">Another Article</a>
+          </h2>
+          <p>Details here</p>
+        </article> -->
+      </section>
+      <section id="talks">
+        <article>
+          <h2 class="my-4 text-xl">Hacking Games Together with React</h2>
+          <p>Or: How to Do Things by Not Doing Nothing</p>
+          <div class="video-container">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/sUI_b_qXAew"
+              frameborder="0"
+              allowfullscreen=""
+            ></iframe>
           </div>
-          <div>
-            <p>
-              Hafcaf is an extremely minimal single-page application (SPA) framework, designed for people who want to
-              rapidly create apps without having to learn a whole new way to create apps. If you know HTML, a little
-              CSS, and a very little JavaScript, you can be creating a SPA in less than five minutes.
-            </p>
-            <br />
-            <ul class="list-disc list-inside">
-              <li>No build tools needed - but you can integrate with them if you wish</li>
-              <li>Works as far back as IE 8</li>
-              <li>Designed to require the use of as little JavaScript as possible</li>
-              <li>Will play nice with pretty much all CSS frameworks</li>
-            </ul>
+          <p>Given at ChaDev 8/3/2017</p>
+        </article>
+        <article>
+          <h2 class="my-4 text-xl">Find Your Story</h2>
+          <p>Build better sites by building better stories.</p>
+          <div class="video-container">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/wOkHrMI4ZiY"
+              frameborder="0"
+              allowfullscreen=""
+            ></iframe>
           </div>
+          <p>Given at ChaDev 9/17/2015</p>
         </article>
       </section>
       <section id="crafting">
