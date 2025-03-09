@@ -12,21 +12,24 @@
         --white: #f4f4f0;
         --french-gray: #b8b8b8;
         --sunny-yellow: #ecbf55;
+        --cornflower-blue: rgb(72, 124, 159);
       }
       body {
-        background-color: var(--sunny-yellow);
+        background-color: var(--cornflower-blue);
       }
       nav ul li {
         display: inline-block;
         padding-right: 0.5rem;
+        color: var(--white);
+      }
+      nav ul li a:hover {
+        text-decoration: underline;
       }
       section {
         display: none;
         background-color: var(--white);
         border: 1px solid var(--black);
         padding: 1rem;
-        max-height: 80vh;
-        overflow-y: auto;
       }
       section:target {
         display: block;
@@ -34,6 +37,7 @@
       @media (min-width: 768px) {
         section:target {
           width: 75%;
+          margin: 0 auto;
         }
       }
       h1,
@@ -41,10 +45,15 @@
       h3 {
         font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
       }
+      @media (max-width: 767px) {
+        #resumeEmbed {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body class="font-sans">
-    <nav id="mainMenu" class="absolute top-4 left-2">
+    <nav id="mainMenu" class="mb-2 ml-2 mt-2">
       <ul class="list-none">
         <li><a href="#home">Home</a></li>
         <li><a href="#about-me">About Me</a></li>
@@ -59,7 +68,7 @@
         -->
       </ul>
     </nav>
-    <main class="flex justify-center items-center h-screen">
+    <main class="">
       <section id="home">
         <h1 class="text-2xl font-bold">
           Hi, I’m Andrew Steele
@@ -101,18 +110,16 @@
         <article>
           <h2 class="text-xl my-2">Who are you?</h2>
           <p class="leading-relaxed">
-            My name is Andrew, and I am a writer, a coder, a husband, a father, a dreamer, and a creator. I live with my
-            wife and four kids in Chattanooga, TN. I was born in California, and have also lived in Colorado and
-            Georgia.
+            My name is Andrew, and I am a coder, a writer, a husband, a father, a dreamer, and a creator. I live in
+            Chattanooga, TN.
           </p>
 
           <h2 class="text-xl my-2">What do you do?</h2>
           <p class="leading-relaxed">
             I am a motivated, personable developer with more than 20 years of experience and a successful history of
             tackling technology challenges. I am a creative problem-solver that achieves quick results by thinking
-            outside the box and using standards-based code. I can envision user needs inclusively, adapting to multiple
-            comfort levels with technology. I am passionate about assisting users and companies to achieve their goals
-            through innovative solutions.
+            outside the box and using standards-based code. I am passionate about assisting users and companies to
+            achieve their goals through innovative solutions.
           </p>
           <br />
           <p class="leading-relaxed">
@@ -134,20 +141,24 @@
           </p>
 
           <h2 class="text-xl my-2">How was this site made?</h2>
-          <p class="leading-relaxed">
-            This site was made using the Tailwind CSS framework and plain HTML and JavaScript.
-          </p>
+          <p class="leading-relaxed">This site was made using the Tailwind CSS framework and plain HTML and CSS.</p>
         </article>
       </section>
-      <section id="resume" class="h-full">
+      <section id="resume">
         <h1 class="text-2xl font-bold">Resumé</h1>
         <article>
           <p class="my-2"><a href="assets/andrew-steele-resume.pdf" class="underline">Download my resumé</a></p>
-          <embed src="assets/andrew-steele-resume.pdf" width="100%" type="application/pdf" style="height: 80vh" />
+          <div id="resumeEmbed">
+            <embed src="assets/andrew-steele-resume.pdf" width="100%" type="application/pdf" style="height: 80vh" />
+          </div>
         </article>
       </section>
       <section id="code">
         <h1 class="text-2xl">Code</h1>
+        <p class="leading-relaxed">
+          Here are some examples of projects I've created. To see even more checkout my
+          <a class="underline" href="https://github.com/Andrew565">GitHub</a>.
+        </p>
         <article class="mb-4">
           <h2 class="my-4 text-xl">
             <a class="underline" href="https://github.com/Andrew565/hafcaf" class="underline">Hafcaf</a>
