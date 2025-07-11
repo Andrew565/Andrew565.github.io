@@ -1,9 +1,15 @@
 #!/bin/bash
 
+# Set to the width and height of your specific device
+final_wallpaper_size="1080x2340"
+
+# Splits the size into width and height for later
+IFS='x' read -r background_width background_height <<<"$final_wallpaper_size"
+
 # Function to get the dominant color of an image
 get_dominant_color() {
   local image_file="$1"
-  ~/Projects/dominantcolor "$image_file"
+  ./dominantcolor "$image_file"
 }
 
 # Process each image file in the current directory
@@ -16,15 +22,14 @@ for image_file in *; do
     dominant_color=$(get_dominant_color "$image_file")
 
     # Create the background
-    magick -size 1169x2075 xc:$dominant_color background.png
+    magick -size $final_wallpaper_size xc:$dominant_color background.png
 
-    # Calculate offsets
+    # Calculate "foreground/overlay" width and heights
     dimensions=$(identify -format "%w %h" "$image_file")
     overlay_width=$(echo "$dimensions" | awk '{print $1}')
     overlay_height=$(echo "$dimensions" | awk '{print $2}')
-    background_width=1169
-    background_height=2075
 
+    # Calculate the offsets needed in order to center the foreground image
     x_offset=$(((background_width - overlay_width) / 2))
     y_offset=$(((background_height - overlay_height) / 2))
 

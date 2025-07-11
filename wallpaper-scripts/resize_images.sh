@@ -1,6 +1,6 @@
 #!/bin/bash
 
-desired_width=960 # Set the desired width for the resized images
+desired_width=1080 # Set the desired width for the resized images
 
 # Loop through all image files in the directory
 for image in *; do
