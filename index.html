@@ -5,318 +5,453 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Andrew the Creator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300..900;1,300..900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       :root {
-        --black: #333;
-        --white: #f4f4f0;
-        --french-gray: #b8b8b8;
-        --sunny-yellow: #ecbf55;
-        --cornflower-blue: rgb(72, 124, 159);
+        --paper-bg: #fdfcf8;
+        --text-main: #2c2c2c;
+        --text-secondary: #555;
+        --accent: #7b5e4d;
+        --nav-hover: #96715b;
       }
+
       body {
-        background-color: var(--cornflower-blue);
+        background-image: url('assets/img/wood_bg.png');
+        background-size: 800px; /* Tiled or cover depending on look */
+        background-repeat: repeat;
+        background-color: #2c1e14;
+        font-family: 'Inter', sans-serif;
+        color: var(--text-main);
+        line-height: 1.6;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
       }
-      nav ul li {
-        display: inline-block;
-        padding-right: 0.5rem;
-        color: var(--white);
+
+      .paper-container {
+        max-width: 900px;
+        margin: 40px auto;
+        position: relative;
+        perspective: 1000px;
       }
-      nav ul li a:hover {
-        text-decoration: underline;
+
+      .paper-sheet {
+        background-image: url('assets/img/paper_bg.png');
+        background-color: var(--paper-bg);
+        background-blend-mode: multiply;
+        box-shadow:
+          0 1px 1px rgba(0,0,0,0.1),
+          0 10px 40px rgba(0,0,0,0.3),
+          -5px 5px 15px rgba(0,0,0,0.1);
+        padding: 60px 80px;
+        min-height: 1000px;
+        border-radius: 2px;
+        position: relative;
+        transform: rotate(-0.5deg); /* Subtle paper rotation for organic feel */
+        transition: transform 0.3s ease;
       }
+
+      @media (max-width: 768px) {
+        body { padding: 10px; }
+        .paper-sheet {
+          padding: 40px 20px;
+          transform: none;
+        }
+        .paper-container { margin: 10px auto; }
+      }
+
+      h1, h2, h3 {
+        font-family: 'Crimson Pro', serif;
+        font-weight: 700;
+        color: #1a1a1a;
+      }
+
+      nav {
+        margin-bottom: 40px;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding-bottom: 20px;
+      }
+
+      nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        list-style: none;
+        padding: 0;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: color 0.2s;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      nav a:hover, nav a.active {
+        color: var(--accent);
+      }
+
       section {
         display: none;
-        background-color: var(--white);
-        border: 1px solid var(--black);
-        padding: 1rem;
+        animation: fadeIn 0.4s ease;
       }
+
       section:target {
         display: block;
       }
-      @media (min-width: 768px) {
-        section:target {
-          width: 75%;
-          margin: 0 auto;
-        }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
-      h1,
-      h2,
-      h3 {
-        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+
+      .profile-img {
+        border-radius: 4px; /* Slightly squared for professional look */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        filter: sepia(0.2);
+        transition: transform 0.3s ease;
       }
-      @media (max-width: 767px) {
-        #resumeEmbed {
-          display: none;
-        }
+
+      .profile-img:hover {
+        transform: scale(1.05);
+      }
+
+      .btn-link {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: all 0.2s;
+        font-weight: 600;
+      }
+
+      .btn-link:hover {
+        border-bottom: 1px solid var(--accent);
+      }
+
+      .project-card {
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+      }
+
+      /* Woodworking touch: separator */
+      .wood-line {
+        height: 2px;
+        background: var(--accent);
+        width: 60px;
+        margin: 20px 0;
+        opacity: 0.3;
+      }
+
+      /* Specific visibility for the home section if no hash */
+      #home:not(:target) {
+        display: none;
+      }
+
+      /* Resumé specific */
+      #resumeEmbed {
+        margin-top: 20px;
+        border: 1px solid rgba(0,0,0,0.1);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      }
+
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        margin: 20px 0;
+        border-radius: 4px;
+        background: #000;
+      }
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
       }
     </style>
   </head>
-  <body class="font-sans">
-    <nav id="mainMenu" class="mb-2 ml-2 mt-2">
-      <ul class="list-none">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about-me">About Me</a></li>
-        <li><a href="#resume">Resumé</a></li>
-        <li><a href="#code">Code</a></li>
-        <!-- <li><a href="#crafting">Crafting</a></li> -->
-        <li><a href="#articles">Articles</a></li>
-        <li><a href="#talks">Talks</a></li>
-        <!-- <li><a href="#fiction">Fiction</a></li>
-        <li><a href="#games">Games</a></li>
-        <li><a href="#contact">Contact Me</a></li>
-        -->
-      </ul>
-    </nav>
-    <main class="">
-      <section id="home">
-        <h1 class="text-2xl font-bold">
-          Hi, I’m Andrew Steele
-          <img
-            src="/assets/img/andrew-steele.jpg"
-            alt="A picture of Andrew Steele"
-            class="rounded-full w-32 h-32 float-right"
-          />
-        </h1>
-        <p class="leading-relaxed my-4">
-          <a class="underline mr-2" href="https://www.linkedin.com/in/andrew-steele-0509a4169/">LinkedIn</a>
-          <a class="underline mr-2" href="https://github.com/Andrew565">GitHub</a>
-          <a class="underline mr-2" href="#resume">Resumé</a>
-        </p>
-        <p class="leading-relaxed">
-          I am a staff-level, front end software engineer. I excel at untangling legacy code and making it more modern,
-          adding and updating automated testing, and working with designers to realize their concepts. Here's what I
-          bring to every role:
-        </p>
-        <ul class="list-disc list-inside my-4">
-          <li>20+ years of experience</li>
-          <li>Expertise in HTML, CSS, and JavaScript</li>
-          <li>Experience with React, Web Components, and other frameworks</li>
-          <li>
-            Proven <a class="underline" href="#resume">track record</a> of success in civilian and government arenas
-          </li>
-          <li>Strong problem-solving skills</li>
-          <li>Excellent communication skills</li>
-          <li>Ability to work independently and as part of a team</li>
-        </ul>
-        <p class="leading-relaxed">
-          Check out my <a class="underline" href="#resume">resumé</a> for more of my history, or take a peek at some of
-          my <a class="underline" href="#code">code examples</a> and some of the
-          <a class="underline" href="#articles">articles</a> I've written.
-        </p>
-      </section>
-      <section id="about-me">
-        <h1 class="text-2xl font-bold">About Me</h1>
-        <article>
-          <h2 class="text-xl my-2">Who are you?</h2>
-          <p class="leading-relaxed">
-            My name is Andrew, and I am a coder, a writer, a husband, a father, a dreamer, and a creator. I live in
-            Chattanooga, TN.
-          </p>
+  <body>
+    <div class="paper-container">
+      <main class="paper-sheet">
+        <header>
+          <h1 class="text-4xl mb-2">Andrew Steele</h1>
+          <p class="text-xl text-stone-500 font-medium mb-8">Frontend Engineer & Creator</p>
 
-          <h2 class="text-xl my-2">What do you do?</h2>
-          <p class="leading-relaxed">
-            I am a motivated, personable developer with more than 20 years of experience and a successful history of
-            tackling technology challenges. I am a creative problem-solver that achieves quick results by thinking
-            outside the box and using standards-based code. I am passionate about assisting users and companies to
-            achieve their goals through innovative solutions.
-          </p>
-          <br />
-          <p class="leading-relaxed">
+          <nav id="mainMenu">
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about-me">About</a></li>
+              <li><a href="#resume">Resumé</a></li>
+              <li><a href="#code">Code</a></li>
+              <li><a href="#articles">Articles</a></li>
+              <li><a href="#talks">Talks</a></li>
+              <li><a href="#writing">Writing</a></li>
+              <li><a href="#crafting">Crafts</a></li>
+              <li><a href="#games">Games</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <!-- Home Section -->
+        <section id="home">
+          <div class="flex flex-col md:flex-row gap-8 items-start mb-8">
+            <div class="flex-1">
+              <h2 class="text-3xl mb-4 italic">Hi there, I’m Andrew.</h2>
+              <p class="text-lg mb-6 leading-relaxed">
+                I am a staff-level, frontend software engineer with a passion for building beautiful,
+                accessible, and performant user experiences. With over <b>20 years of experience</b>,
+                I specialize in untangling complex legacy codebases and architectural transformations.
+              </p>
+              <p class="text-lg mb-6 leading-relaxed">
+                I am also a woodworker, writer, and game designer. Here on my personal website, you can
+                explore my work in all of these areas, plus whatever fancies I get up to.
+              </p>
+              <div class="flex gap-4">
+                <a class="btn-link" href="https://www.linkedin.com/in/andrew-steele-0509a4169/">LinkedIn</a>
+                <a class="btn-link" href="https://github.com/Andrew565">GitHub</a>
+                <a class="btn-link" href="#resume">Resumé</a>
+              </div>
+            </div>
+            <img
+              src="assets/img/andrew-steele.jpg"
+              alt="Andrew Steele"
+              class="profile-img w-48 h-48 object-cover md:w-64 md:h-64"
+            />
+          </div>
+
+          <div class="wood-line"></div>
+
+          <h3 class="text-xl font-bold mb-4 uppercase tracking-wider text-stone-400">What I Do Best</h3>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 list-none p-0 mb-8">
+            <li class="flex items-start gap-2">
+              <span class="text-accent">◈</span> Legacy Code Modernization
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent">◈</span> Architectural Consistency
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent">◈</span> Design System Implementation
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent">◈</span> Technical Mentorship
+            </li>
+          </ul>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about-me">
+          <h2 class="text-3xl mb-6">About Me</h2>
+          <article class="prose prose-stone max-w-none">
+            <h3 class="text-xl mb-3">Writer, Coder, Craftsman</h3>
+            <p>
+              Based in Chattanooga, TN, I find balance between the digital and the physical.
+              My days are spent in code, but my soul finds peace in the smell of sawdust and the
+              scratch of a pen on paper.
+            </p>
+            <p class="leading-relaxed">
             I am flexible and versatile – able to maintain a sense of humor under pressure. I thrive in collaborative
             environments and am always receptive to feedback. I look for ways to improve as an individual, and also how
             to improve the offerings of whatever company I work for. I enjoy mentoring junior developers and encouraging
             them to reach new levels of their craft (see my
             <a class="underline" href="#articles">articles</a> and <a class="underline" href="#talks">talks</a> for
             examples).
-          </p>
+            </p>
 
-          <h2 class="text-xl my-2">Why do you do it?</h2>
-          <p class="leading-relaxed">
-            I desire to connect people, companies, and technologies in a synergistic union because I believe
-            applications can be used to aid people's daily lives. Technology and knowledge should be accessible to all
-            people and available in a way that is simple and easy to use. I believe that I should make things easy for
-            the user and difficult for myself. No shortcuts and no quick-fixes. Things should be done right the first
-            time.
-          </p>
+            <h3 class="text-xl mt-8 mb-3">The Philosophy</h3>
+            <p>
+              I believe that I should make things easy for the user and difficult for myself.
+              No shortcuts and no quick-fixes. Things should be done right the first time.
+              Applications can be used to aid people's daily lives, and knowledge should be
+              available in a way that is simple for anyone to reach.
+            </p>
+          </article>
+        </section>
 
-          <h2 class="text-xl my-2">How was this site made?</h2>
-          <p class="leading-relaxed">This site was made using the Tailwind CSS framework and plain HTML and CSS.</p>
-        </article>
-      </section>
-      <section id="resume">
-        <h1 class="text-2xl font-bold">Resumé</h1>
-        <article>
-          <p class="my-2"><a href="assets/andrew-steele-resume.pdf" class="underline">Download my resumé</a></p>
+        <!-- Resume Section -->
+        <section id="resume">
+          <h2 class="text-3xl mb-6">Resumé</h2>
+          <p class="mb-4">
+            <a href="assets/andrew-steele-resume.pdf" class="btn-link">Download PDF version</a>
+          </p>
           <div id="resumeEmbed">
             <embed src="assets/andrew-steele-resume.pdf" width="100%" type="application/pdf" style="height: 80vh" />
           </div>
-        </article>
-      </section>
-      <section id="code">
-        <h1 class="text-2xl">Code</h1>
-        <p class="leading-relaxed">
-          Here are some examples of projects I've created. To see even more checkout my
-          <a class="underline" href="https://github.com/Andrew565">GitHub</a>.
-        </p>
-        <article class="mb-4">
-          <h2 class="my-4 text-xl">
-            <a class="underline" href="https://github.com/Andrew565/hafcaf" class="underline">Hafcaf</a>
-          </h2>
-          <p>
-            Hafcaf is an extremely minimal (1kb) single-page application (SPA) framework, designed for people who want
-            to rapidly create apps without having to learn a whole new way to create apps. If you know HTML, a little
-            CSS, and a very little JavaScript, you can be creating a SPA in less than five minutes.
+        </section>
+
+        <!-- Code Section -->
+        <section id="code">
+          <h2 class="text-3xl mb-6">Code & Projects</h2>
+          <p class="mb-8 italic text-stone-500">
+            A selection of tools and toys I've built. See more on
+            <a class="btn-link" href="https://github.com/Andrew565">GitHub</a>.
           </p>
-          <ul class="mt-2 list-disc list-inside">
-            <li>No build tools needed - but you can integrate with them if you wish</li>
-            <li>Works as far back as IE 8</li>
-            <li>Designed to require the use of as little JavaScript as possible</li>
-            <li>Will play nice with pretty much all CSS frameworks</li>
-          </ul>
-        </article>
-        <article>
-          <h2 class="my-4 text-xl">
-            <a class="my-2 underline" href="https://github.com/Andrew565/ProjectMO">MATR1X 0VERL0AD</a>
-          </h2>
-          <p>
-            MATR1X 0VERL0AD is my digital recreation of a cyberpunk physical card game by
-            <a class="underline" href="https://notwriting.itch.io/matrix-overload">Michael Elliot</a>. I used my
-            <a class="underline" href="https://github.com/Andrew565/DeckOfCards.js">DeckOfCards.js</a> library, and
-            hand-coded the mechanics using plain JavaScript. You can
-            <a class="underline" href="https://andrew565.github.io/ProjectMO/">play the game online</a>.
-          </p>
-        </article>
-        <article>
-          <h2 class="my-4 text-xl">
-            <a class="my-2 underline" href="https://github.com/Andrew565/DeckOfCards.js">DeckOfCards.js</a>
-          </h2>
-          <p>
-            DeckOfCards.js is a JavaScript library for creating and manipulating decks of cards. It is designed to be
-            easy to use and flexible, allowing you to create decks of any size and type, and to perform a wide range of
-            operations on them. It was built using TypeScript.
-          </p>
-        </article>
-      </section>
-      <section id="articles">
-        <h1 class="text-2xl font-bold">Articles</h1>
-        <article>
-          <h2 class="my-4 text-xl">
-            <a class="underline" href="https://dev.to/andrew565/an-introduction-to-narrative-coding-4fed"
-              >An Introduction to Narrative Coding</a>
-          </h2>
-          <p>
-            A look at "Narrative Coding", a technique of using extra comments and descriptive names to tell a story with your code.
-          </p>
-        </article>
-        <article>
-          <h2 class="my-4 text-xl">
-            <a class="underline" href="https://dev.to/andrew565/my-crazy-ios-wallpapers-setup-44ee-temp-slug-3360853"
-              >My Crazy iOS Wallpapers Setup</a>
-          </h2>
-          <img src="./assets/img/wallpapers.png" width="360"/>
-          <p>
-            How I use a small army of iOS Shortcuts to manage my 2000+ wallpapers collection and keep things fresh!
-          </p>
-        </article>
-        <article>
-          <h2 class="my-4 text-xl">
-            <a class="underline" href="https://dev.to/andrew565/hafcaf-the-no-framework-spa-solution-for-everyone-ckj"
-              >hafcaf - The No-Framework SPA Solution for Everyone</a
-            >
-          </h2>
-          <p>
-            The article I wrote to introduce hafcaf to the world. See the
-            <a class="underline" href="https://github.com/Andrew565/hafcaf">GitHub repo</a> for the source code and
-            docs.
-          </p>
-        </article>
-        <article>
-          <h2 class="my-4 text-xl">
-            <a class="underline" href="https://dev.to/andrew565/which-array-function-when"
-              >Which Arrray Function When?</a
-            >
-          </h2>
-          <p>A discussion of the most popular array functions for iterating over a collection of values.</p>
-        </article>
-        <article class="mt-4">
-          <p>More coming soon!</p>
-        </article>
-        <!-- <article>
-          <h2 class="my-4 text-xl">
-            <a class="underline" href="">Another Article</a>
-          </h2>
-          <p>Details here</p>
-        </article>
-        <article>
-          <h2 class="my-4 text-xl">
-            <a class="underline" href="">Another Article</a>
-          </h2>
-          <p>Details here</p>
-        </article> -->
-      </section>
-      <section id="talks">
-        <article>
-          <h2 class="my-4 text-xl">Hacking Games Together with React</h2>
-          <p>Or: How to Do Things by Not Doing Nothing</p>
-          <div class="video-container">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/sUI_b_qXAew"
-              frameborder="0"
-              allowfullscreen=""
-            ></iframe>
+
+          <article class="project-card">
+            <h3 class="text-2xl mb-2">
+              <a class="hover:underline" href="https://github.com/Andrew565/hafcaf">Hafcaf</a>
+            </h3>
+            <p class="text-stone-600 mb-4">
+              An extremely minimal (1kb) SPA framework for those who want to build quickly without
+              the overhead of modern heavy-hitters. If you know HTML, you know Hafcaf.
+            </p>
+            <ul class="list-disc list-inside text-sm text-stone-500">
+              <li>No build tools required</li>
+              <li>Retro-compatible back to IE 8</li>
+              <li>Pure JavaScript core</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <h3 class="text-2xl mb-2">
+              <a class="hover:underline" href="https://github.com/Andrew565/ProjectMO">MATR1X 0VERL0AD</a>
+            </h3>
+            <p class="text-stone-600">
+              A digital recreation of Michael Elliot's cyberpunk card game.
+              Built with plain JS and my custom DeckOfCards.js library.
+            </p>
+            <a href="https://andrew565.github.io/ProjectMO/" class="btn-link text-sm mt-2 inline-block">Play Online →</a>
+          </article>
+
+          <article class="project-card border-none">
+            <h3 class="text-2xl mb-2">
+              <a class="hover:underline" href="https://github.com/Andrew565/DeckOfCards.js">DeckOfCards.js</a>
+            </h3>
+            <p class="text-stone-600">
+              A TypeScript library for building and manipulating card decks.
+              Engineered for flexibility and ease of use in game development.
+            </p>
+          </article>
+        </section>
+
+        <!-- Articles Section -->
+        <section id="articles">
+          <h2 class="text-3xl mb-6">Articles</h2>
+          <div class="grid gap-8">
+            <article class="border-l-2 border-stone-200 pl-6">
+              <h3 class="text-xl mb-2">
+                <a class="hover:underline" href="https://dev.to/andrew565/an-introduction-to-narrative-coding-4fed">
+                  An Introduction to Narrative Coding
+                </a>
+              </h3>
+              <p class="text-stone-600">Using storytelling techniques to make code more readable and maintainable.</p>
+            </article>
+
+            <article class="border-l-2 border-stone-200 pl-6">
+              <h3 class="text-xl mb-2">
+                <a class="hover:underline" href="https://dev.to/andrew565/my-crazy-ios-wallpapers-setup-44ee-temp-slug-3360853">
+                  My Crazy iOS Wallpapers Setup
+                </a>
+              </h3>
+              <img src="./assets/img/wallpapers.png" class="mt-4 rounded shadow-sm max-w-xs" />
+              <p class="text-stone-600 mt-2">Managing a 2000+ wallpaper collection with iOS Shortcuts.</p>
+            </article>
+
+            <article class="border-l-2 border-stone-200 pl-6">
+              <h3 class="text-xl mb-2">
+                <a class="hover:underline" href="https://dev.to/andrew565/hafcaf-the-no-framework-spa-solution-for-everyone-ckj">
+                  hafcaf - The No-Framework SPA Solution
+                </a>
+              </h3>
+              <p class="text-stone-600">Introducing the philosophy behind my minimal SPA framework.</p>
+            </article>
           </div>
-          <p>Given at ChaDev 8/3/2017</p>
-        </article>
-        <article>
-          <h2 class="my-4 text-xl">Find Your Story</h2>
-          <p>Build better sites by building better stories.</p>
-          <div class="video-container">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/wOkHrMI4ZiY"
-              frameborder="0"
-              allowfullscreen=""
-            ></iframe>
+        </section>
+
+        <!-- Talks Section -->
+        <section id="talks">
+          <h2 class="text-3xl mb-8">Talks & Presentations</h2>
+
+          <article class="mb-12">
+            <h3 class="text-xl mb-2">Hacking Games Together with React</h3>
+            <p class="text-stone-500 italic mb-4">ChaDev - Aug 2017</p>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/sUI_b_qXAew" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </article>
+
+          <article>
+            <h3 class="text-xl mb-2">Find Your Story</h3>
+            <p class="text-stone-500 italic mb-4">ChaDev - Sept 2015</p>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/wOkHrMI4ZiY" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </article>
+        </section>
+
+        <!-- Writing Section -->
+        <section id="writing">
+          <h2 class="text-3xl mb-6">Writing & Poetry</h2>
+          <article class="prose prose-stone max-w-none">
+            <p class="mb-6 italic">A short poem I wrote while trying to come up with content for this space:</p>
+            <div class="bg-stone-50 p-8 border-l-4 border-stone-200 font-serif italic text-lg leading-relaxed">
+              <p>Roses are red,</p>
+              <p>Coding is hard,</p>
+              <p>Whatever you do,</p>
+              <p>Don't trust a developer bard.</p>
+            </div>
+            <p class="mt-8">
+              I'll post some more interesting content here at some point in the future. Probably.
+            </p>
+          </article>
+        </section>
+
+        <!-- Crafting Section -->
+        <section id="crafting">
+          <h2 class="text-3xl mb-6">Crafts & Woodworking</h2>
+          <p class="text-stone-600 italic">
+            "In a world of ephemeral bits, there is something profound about the weight of a hand-carved spoon."
+          </p>
+          <div class="mt-8 p-8 bg-stone-100 border border-stone-200 rounded text-center">
+            <p class="text-stone-500">I'm currently setting up my digital workshop. Photos of whittled creations and woodworking projects coming soon.</p>
           </div>
-          <p>Given at ChaDev 9/17/2015</p>
-        </article>
-      </section>
-      <section id="crafting">
-        <p>I like to whittle and do a very small amount of woodworking. I might post some examples here someday.</p>
-      </section>
-      <section id="games">
-        <p>
-          Eventually I will post information here about some of the games I've made, and probably also some of the games
-          I enjoy playing.
-        </p>
-        <br />
-        <p>
-          I'm obsessed with collecting Print and Play games in particular, and solo ones especially. If you know of a
-          good one and/or want a recommendation, let me know!
-        </p>
-      </section>
-      <section id="writing">
-        <p>Here's a short poem I wrote while trying to come up with content for this space:</p>
-        <br />
-        <p>Roses are red,</p>
-        <p>Coding is hard,</p>
-        <p>Whatever you do,</p>
-        <p>Don't trust a developer bard.</p>
-        <br />
-        <p>I'll post some more interesting content here at some point in the future. Probably.</p>
-      </section>
-      <section id="contact">
-        <p>Info on how to contact me, should you for some reason desire to do so, will eventually go here.</p>
-      </section>
-    </main>
+        </section>
+
+        <!-- Games Section -->
+        <section id="games">
+          <h2 class="text-3xl mb-6">Games</h2>
+          <p class="text-stone-600 italic">
+            "Play. Create. Explore."
+          </p>
+          <div class="mt-8 p-8 bg-stone-100 border border-stone-200 rounded text-center">
+            <p class="text-stone-500">I'm currently setting up my digital workshop. Gaming projects coming soon.</p>
+          </div>
+        </section>
+
+        <footer class="mt-20 pt-8 border-t border-stone-100 text-sm text-stone-400 text-center">
+          &copy; <script>document.write(new Date().getFullYear())</script> Andrew Steele. Built with care and sawdust.
+        </footer>
+      </main>
+    </div>
+
     <script>
-      if (!window.location.hash) {
-        window.location.hash = "home";
+      // Handle initial hash
+      function handleRoute() {
+        if (!window.location.hash || window.location.hash === "#") {
+          window.location.hash = "home";
+        }
+
+        // Update active link
+        const links = document.querySelectorAll('nav a');
+        links.forEach(link => {
+          if (link.getAttribute('href') === window.location.hash) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
       }
+
+      window.addEventListener('hashchange', handleRoute);
+      window.addEventListener('load', handleRoute);
     </script>
   </body>
 </html>
