@@ -1,13 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Andrew the Creator</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300..900;1,300..900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300..900;1,300..900&family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       :root {
@@ -19,11 +22,11 @@
       }
 
       body {
-        background-image: url('assets/img/wood_bg.png');
+        background-image: url("assets/img/wood_bg.png");
         background-size: 800px; /* Tiled or cover depending on look */
         background-repeat: repeat;
         background-color: #2c1e14;
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         color: var(--text-main);
         line-height: 1.6;
         min-height: 100vh;
@@ -39,39 +42,53 @@
       }
 
       .paper-sheet {
-        background-image: url('assets/img/paper_bg.png');
+        background-image: url("assets/img/paper_bg.png");
         background-color: var(--paper-bg);
         background-blend-mode: multiply;
         box-shadow:
-          0 1px 1px rgba(0,0,0,0.1),
-          0 10px 40px rgba(0,0,0,0.3),
-          -5px 5px 15px rgba(0,0,0,0.1);
+          0 1px 1px rgba(0, 0, 0, 0.1),
+          0 10px 40px rgba(0, 0, 0, 0.3),
+          -5px 5px 15px rgba(0, 0, 0, 0.1);
         padding: 60px 80px;
         min-height: 1000px;
         border-radius: 2px;
         position: relative;
-        transform: rotate(-0.5deg); /* Subtle paper rotation for organic feel */
-        transition: transform 0.3s ease;
       }
 
       @media (max-width: 768px) {
-        body { padding: 10px; }
+        body {
+          padding: 10px;
+        }
         .paper-sheet {
           padding: 40px 20px;
           transform: none;
         }
-        .paper-container { margin: 10px auto; }
+        .paper-container {
+          margin: 10px auto;
+        }
       }
 
-      h1, h2, h3 {
-        font-family: 'Crimson Pro', serif;
+      h1,
+      h2,
+      h3 {
+        font-family: "Crimson Pro", serif;
         font-weight: 700;
         color: #1a1a1a;
       }
 
+      header {
+        position: sticky;
+        top: 0;
+        background-image: url("assets/img/paper_bg.png");
+        background-color: var(--paper-bg);
+        background-blend-mode: multiply;
+        z-index: 100;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
       nav {
         margin-bottom: 40px;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         padding-bottom: 20px;
       }
 
@@ -93,29 +110,23 @@
         letter-spacing: 0.05em;
       }
 
-      nav a:hover, nav a.active {
+      nav a:hover,
+      nav a.active {
         color: var(--accent);
       }
 
       section {
         display: none;
-        animation: fadeIn 0.4s ease;
       }
 
       section:target {
         display: block;
       }
 
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-
       .profile-img {
         border-radius: 4px; /* Slightly squared for professional look */
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         filter: sepia(0.2);
-        transition: transform 0.3s ease;
       }
 
       .profile-img:hover {
@@ -137,7 +148,7 @@
       .project-card {
         margin-bottom: 40px;
         padding-bottom: 20px;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       }
 
       /* Woodworking touch: separator */
@@ -157,8 +168,8 @@
       /* Resumé specific */
       #resumeEmbed {
         margin-top: 20px;
-        border: 1px solid rgba(0,0,0,0.1);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       }
 
       .video-container {
@@ -184,7 +195,9 @@
       <main class="paper-sheet">
         <header>
           <h1 class="text-4xl mb-2">Andrew Steele</h1>
-          <p class="text-xl text-stone-500 font-medium mb-8">Frontend Engineer & Creator</p>
+          <p class="text-xl text-stone-500 font-medium mb-8">
+            Frontend Engineer & Creator
+          </p>
 
           <nav id="mainMenu">
             <ul>
@@ -207,17 +220,26 @@
             <div class="flex-1">
               <h2 class="text-3xl mb-4 italic">Hi there, I’m Andrew.</h2>
               <p class="text-lg mb-6 leading-relaxed">
-                I am a staff-level, frontend software engineer with a passion for building beautiful,
-                accessible, and performant user experiences. With over <b>20 years of experience</b>,
-                I specialize in untangling complex legacy codebases and architectural transformations.
+                I am a staff-level, frontend software engineer with a passion
+                for building beautiful, accessible, and performant user
+                experiences. With over <b>20 years of experience</b>, I
+                specialize in untangling complex legacy codebases and
+                architectural transformations.
               </p>
               <p class="text-lg mb-6 leading-relaxed">
-                I am also a woodworker, writer, and game designer. Here on my personal website, you can
-                explore my work in all of these areas, plus whatever fancies I get up to.
+                I am also a woodworker, writer, and game designer. Here on my
+                personal website, you can explore my work in all of these areas,
+                plus whatever fancies I get up to.
               </p>
               <div class="flex gap-4">
-                <a class="btn-link" href="https://www.linkedin.com/in/andrew-steele-0509a4169/">LinkedIn</a>
-                <a class="btn-link" href="https://github.com/Andrew565">GitHub</a>
+                <a
+                  class="btn-link"
+                  href="https://www.linkedin.com/in/andrew-steele-0509a4169/"
+                  >LinkedIn</a
+                >
+                <a class="btn-link" href="https://github.com/Andrew565"
+                  >GitHub</a
+                >
                 <a class="btn-link" href="#resume">Resumé</a>
               </div>
             </div>
@@ -230,7 +252,11 @@
 
           <div class="wood-line"></div>
 
-          <h3 class="text-xl font-bold mb-4 uppercase tracking-wider text-stone-400">What I Do Best</h3>
+          <h3
+            class="text-xl font-bold mb-4 uppercase tracking-wider text-stone-400"
+          >
+            What I Do Best
+          </h3>
           <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 list-none p-0 mb-8">
             <li class="flex items-start gap-2">
               <span class="text-accent">◈</span> Legacy Code Modernization
@@ -253,25 +279,29 @@
           <article class="prose prose-stone max-w-none">
             <h3 class="text-xl mb-3">Writer, Coder, Craftsman</h3>
             <p>
-              Based in Chattanooga, TN, I find balance between the digital and the physical.
-              My days are spent in code, but my soul finds peace in the smell of sawdust and the
-              scratch of a pen on paper.
+              Based in Chattanooga, TN, I find balance between the digital and
+              the physical. My days are spent in code, but my soul finds peace
+              in the smell of sawdust and the scratch of a pen on paper.
             </p>
+            <br />
             <p class="leading-relaxed">
-            I am flexible and versatile – able to maintain a sense of humor under pressure. I thrive in collaborative
-            environments and am always receptive to feedback. I look for ways to improve as an individual, and also how
-            to improve the offerings of whatever company I work for. I enjoy mentoring junior developers and encouraging
-            them to reach new levels of their craft (see my
-            <a class="underline" href="#articles">articles</a> and <a class="underline" href="#talks">talks</a> for
-            examples).
+              I am flexible and versatile – able to maintain a sense of humor
+              under pressure. I thrive in collaborative environments and am
+              always receptive to feedback. I look for ways to improve as an
+              individual, and also how to improve the offerings of whatever
+              company I work for. I enjoy mentoring junior developers and
+              encouraging them to reach new levels of their craft (see my
+              <a class="underline" href="#articles">articles</a> and
+              <a class="underline" href="#talks">talks</a> for examples).
             </p>
 
             <h3 class="text-xl mt-8 mb-3">The Philosophy</h3>
             <p>
-              I believe that I should make things easy for the user and difficult for myself.
-              No shortcuts and no quick-fixes. Things should be done right the first time.
-              Applications can be used to aid people's daily lives, and knowledge should be
-              available in a way that is simple for anyone to reach.
+              I believe that I should make things easy for the user and
+              difficult for myself. No shortcuts and no quick-fixes. Things
+              should be done right the first time. Applications can be used to
+              aid people's daily lives, and knowledge should be available in a
+              way that is simple for anyone to reach.
             </p>
           </article>
         </section>
@@ -280,10 +310,17 @@
         <section id="resume">
           <h2 class="text-3xl mb-6">Resumé</h2>
           <p class="mb-4">
-            <a href="assets/andrew-steele-resume.pdf" class="btn-link">Download PDF version</a>
+            <a href="assets/andrew-steele-resume.pdf" class="btn-link"
+              >Download PDF version</a
+            >
           </p>
           <div id="resumeEmbed">
-            <embed src="assets/andrew-steele-resume.pdf" width="100%" type="application/pdf" style="height: 80vh" />
+            <embed
+              src="assets/andrew-steele-resume.pdf"
+              width="100%"
+              type="application/pdf"
+              style="height: 80vh"
+            />
           </div>
         </section>
 
@@ -297,11 +334,16 @@
 
           <article class="project-card">
             <h3 class="text-2xl mb-2">
-              <a class="hover:underline" href="https://github.com/Andrew565/hafcaf">Hafcaf</a>
+              <a
+                class="hover:underline"
+                href="https://github.com/Andrew565/hafcaf"
+                >Hafcaf</a
+              >
             </h3>
             <p class="text-stone-600 mb-4">
-              An extremely minimal (1kb) SPA framework for those who want to build quickly without
-              the overhead of modern heavy-hitters. If you know HTML, you know Hafcaf.
+              An extremely minimal (1kb) SPA framework for those who want to
+              build quickly without the overhead of modern heavy-hitters. If you
+              know HTML, you know Hafcaf.
             </p>
             <ul class="list-disc list-inside text-sm text-stone-500">
               <li>No build tools required</li>
@@ -312,18 +354,30 @@
 
           <article class="project-card">
             <h3 class="text-2xl mb-2">
-              <a class="hover:underline" href="https://github.com/Andrew565/ProjectMO">MATR1X 0VERL0AD</a>
+              <a
+                class="hover:underline"
+                href="https://github.com/Andrew565/ProjectMO"
+                >MATR1X 0VERL0AD</a
+              >
             </h3>
             <p class="text-stone-600">
               A digital recreation of Michael Elliot's cyberpunk card game.
               Built with plain JS and my custom DeckOfCards.js library.
             </p>
-            <a href="https://andrew565.github.io/ProjectMO/" class="btn-link text-sm mt-2 inline-block">Play Online →</a>
+            <a
+              href="https://andrew565.github.io/ProjectMO/"
+              class="btn-link text-sm mt-2 inline-block"
+              >Play Online →</a
+            >
           </article>
 
           <article class="project-card border-none">
             <h3 class="text-2xl mb-2">
-              <a class="hover:underline" href="https://github.com/Andrew565/DeckOfCards.js">DeckOfCards.js</a>
+              <a
+                class="hover:underline"
+                href="https://github.com/Andrew565/DeckOfCards.js"
+                >DeckOfCards.js</a
+              >
             </h3>
             <p class="text-stone-600">
               A TypeScript library for building and manipulating card decks.
@@ -338,30 +392,49 @@
           <div class="grid gap-8">
             <article class="border-l-2 border-stone-200 pl-6">
               <h3 class="text-xl mb-2">
-                <a class="hover:underline" href="https://dev.to/andrew565/an-introduction-to-narrative-coding-4fed">
+                <a
+                  class="hover:underline"
+                  href="https://dev.to/andrew565/an-introduction-to-narrative-coding-4fed"
+                >
                   An Introduction to Narrative Coding
                 </a>
               </h3>
-              <p class="text-stone-600">Using storytelling techniques to make code more readable and maintainable.</p>
+              <p class="text-stone-600">
+                Using storytelling techniques to make code more readable and
+                maintainable.
+              </p>
             </article>
 
-            <article class="border-l-2 border-stone-200 pl-6">
+            <!-- <article class="border-l-2 border-stone-200 pl-6">
               <h3 class="text-xl mb-2">
-                <a class="hover:underline" href="https://dev.to/andrew565/my-crazy-ios-wallpapers-setup-44ee-temp-slug-3360853">
+                <a
+                  class="hover:underline"
+                  href="https://dev.to/andrew565/my-crazy-ios-wallpapers-setup-44ee-temp-slug-3360853"
+                >
                   My Crazy iOS Wallpapers Setup
                 </a>
               </h3>
-              <img src="./assets/img/wallpapers.png" class="mt-4 rounded shadow-sm max-w-xs" />
-              <p class="text-stone-600 mt-2">Managing a 2000+ wallpaper collection with iOS Shortcuts.</p>
-            </article>
+              <img
+                src="./assets/img/wallpapers.png"
+                class="mt-4 rounded shadow-sm max-w-xs"
+              />
+              <p class="text-stone-600 mt-2">
+                Managing a 2000+ wallpaper collection with iOS Shortcuts.
+              </p>
+            </article> -->
 
             <article class="border-l-2 border-stone-200 pl-6">
               <h3 class="text-xl mb-2">
-                <a class="hover:underline" href="https://dev.to/andrew565/hafcaf-the-no-framework-spa-solution-for-everyone-ckj">
+                <a
+                  class="hover:underline"
+                  href="https://dev.to/andrew565/hafcaf-the-no-framework-spa-solution-for-everyone-ckj"
+                >
                   hafcaf - The No-Framework SPA Solution
                 </a>
               </h3>
-              <p class="text-stone-600">Introducing the philosophy behind my minimal SPA framework.</p>
+              <p class="text-stone-600">
+                Introducing the philosophy behind my minimal SPA framework.
+              </p>
             </article>
           </div>
         </section>
@@ -374,7 +447,11 @@
             <h3 class="text-xl mb-2">Hacking Games Together with React</h3>
             <p class="text-stone-500 italic mb-4">ChaDev - Aug 2017</p>
             <div class="video-container">
-              <iframe src="https://www.youtube.com/embed/sUI_b_qXAew" frameborder="0" allowfullscreen></iframe>
+              <iframe
+                src="https://www.youtube.com/embed/sUI_b_qXAew"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
             </div>
           </article>
 
@@ -382,7 +459,11 @@
             <h3 class="text-xl mb-2">Find Your Story</h3>
             <p class="text-stone-500 italic mb-4">ChaDev - Sept 2015</p>
             <div class="video-container">
-              <iframe src="https://www.youtube.com/embed/wOkHrMI4ZiY" frameborder="0" allowfullscreen></iframe>
+              <iframe
+                src="https://www.youtube.com/embed/wOkHrMI4ZiY"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
             </div>
           </article>
         </section>
@@ -391,15 +472,21 @@
         <section id="writing">
           <h2 class="text-3xl mb-6">Writing & Poetry</h2>
           <article class="prose prose-stone max-w-none">
-            <p class="mb-6 italic">A short poem I wrote while trying to come up with content for this space:</p>
-            <div class="bg-stone-50 p-8 border-l-4 border-stone-200 font-serif italic text-lg leading-relaxed">
+            <p class="mb-6 italic">
+              A short poem I wrote while trying to come up with content for this
+              space:
+            </p>
+            <div
+              class="bg-stone-50 p-8 border-l-4 border-stone-200 font-serif italic text-lg leading-relaxed"
+            >
               <p>Roses are red,</p>
               <p>Coding is hard,</p>
               <p>Whatever you do,</p>
               <p>Don't trust a developer bard.</p>
             </div>
             <p class="mt-8">
-              I'll post some more interesting content here at some point in the future. Probably.
+              I'll post some more interesting content here at some point in the
+              future. Probably.
             </p>
           </article>
         </section>
@@ -408,26 +495,41 @@
         <section id="crafting">
           <h2 class="text-3xl mb-6">Crafts & Woodworking</h2>
           <p class="text-stone-600 italic">
-            "In a world of ephemeral bits, there is something profound about the weight of a hand-carved spoon."
+            "In a world of ephemeral bits, there is something profound about the
+            weight of a hand-carved spoon."
           </p>
-          <div class="mt-8 p-8 bg-stone-100 border border-stone-200 rounded text-center">
-            <p class="text-stone-500">I'm currently setting up my digital workshop. Photos of whittled creations and woodworking projects coming soon.</p>
+          <div
+            class="mt-8 p-8 bg-stone-100 border border-stone-200 rounded text-center"
+          >
+            <p class="text-stone-500">
+              I'm currently setting up my digital workshop. Photos of whittled
+              creations and woodworking projects coming soon.
+            </p>
           </div>
         </section>
 
         <!-- Games Section -->
         <section id="games">
           <h2 class="text-3xl mb-6">Games</h2>
-          <p class="text-stone-600 italic">
-            "Play. Create. Explore."
-          </p>
-          <div class="mt-8 p-8 bg-stone-100 border border-stone-200 rounded text-center">
-            <p class="text-stone-500">I'm currently setting up my digital workshop. Gaming projects coming soon.</p>
+          <p class="text-stone-600 italic">"Play. Create. Explore."</p>
+          <div
+            class="mt-8 p-8 bg-stone-100 border border-stone-200 rounded text-center"
+          >
+            <p class="text-stone-500">
+              I'm currently setting up my digital workshop. Gaming projects
+              coming soon.
+            </p>
           </div>
         </section>
 
-        <footer class="mt-20 pt-8 border-t border-stone-100 text-sm text-stone-400 text-center">
-          &copy; <script>document.write(new Date().getFullYear())</script> Andrew Steele. Built with care and sawdust.
+        <footer
+          class="mt-20 pt-8 border-t border-stone-100 text-sm text-stone-400 text-center"
+        >
+          &copy;
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          Andrew Steele. Built with care and sawdust.
         </footer>
       </main>
     </div>
@@ -439,19 +541,21 @@
           window.location.hash = "home";
         }
 
+        window.scrollTo(0, 0);
+
         // Update active link
-        const links = document.querySelectorAll('nav a');
-        links.forEach(link => {
-          if (link.getAttribute('href') === window.location.hash) {
-            link.classList.add('active');
+        const links = document.querySelectorAll("nav a");
+        links.forEach((link) => {
+          if (link.getAttribute("href") === window.location.hash) {
+            link.classList.add("active");
           } else {
-            link.classList.remove('active');
+            link.classList.remove("active");
           }
         });
       }
 
-      window.addEventListener('hashchange', handleRoute);
-      window.addEventListener('load', handleRoute);
+      window.addEventListener("hashchange", handleRoute);
+      window.addEventListener("load", handleRoute);
     </script>
   </body>
 </html>
